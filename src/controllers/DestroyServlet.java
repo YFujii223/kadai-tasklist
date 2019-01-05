@@ -13,16 +13,16 @@ import models.Task;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class UpdateServlet
+ * Servlet implementation class DestroyServlet
  */
-@WebServlet("/update")
-public class UpdateServlet extends HttpServlet {
+@WebServlet("/destroy")
+public class DestroyServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateServlet() {
+    public DestroyServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,10 +37,8 @@ public class UpdateServlet extends HttpServlet {
 
             Task t = em.find(Task.class, (Integer)(request.getSession().getAttribute("task_id")));
 
-            String content = request.getParameter("content");
-            t.setContent(content);
-
             em.getTransaction().begin();
+            em.remove(t);
             em.getTransaction().commit();
             em.close();
 
