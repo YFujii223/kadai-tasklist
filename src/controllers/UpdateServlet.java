@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import models.Task;
 import utils.DBUtil;
-
 /**
  * Servlet implementation class UpdateServlet
  */
